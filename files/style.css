@@ -1,7 +1,10 @@
+@import url('https://fonts.googleapis.com/css2?family=Playwrite+AU+SA:wght@100..400&display=swap');
 /* General body styling */
 body {
-    font-family: 'Arial', sans-serif;
-    background: linear-gradient(135deg, #fdfbfb, #ebedee);
+font-family: "Playwrite AU SA", serif;
+    background: linear-gradient(135deg, #da5e5e, #ebedee);
+    background-size: 400% 400%;
+    animation: gradient-bg 10s ease infinite;
     margin: 0;
     padding: 0;
     display: flex;
@@ -9,6 +12,20 @@ body {
     align-items: center;
     justify-content: center;
     min-height: 100vh;
+}
+
+@keyframes gradient-bg {
+    0% {
+        background-position: 0% 50%;
+    }
+
+    50% {
+        background-position: 100% 50%;
+    }
+
+    100% {
+        background-position: 0% 50%;
+    }
 }
 
 /* Input field and button */
@@ -26,6 +43,8 @@ input[type="text"] {
     border-radius: 5px;
     font-size: 16px;
     transition: 0.3s;
+    overflow-wrap: break-word;
+    word-wrap: break-word;
 }
 
 input[type="text"]:focus {
@@ -53,30 +72,37 @@ button {
 
 /* Display container for tasks */
 .display-container {
-    width: 80%;
-    max-width: 500px;
+    width: 100%;
+    max-width: 600px;
     margin: 0 auto;
     padding: 20px;
     background-color: white;
     box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
-    border-radius: 10px;
+    border-radius: 15px;
+    overflow-wrap: break-word;
+    word-wrap: break-word;
 }
 
 /* Task item styling */
 .task-item {
     display: flex;
-    justify-content: space-between;
-    align-items: center;
+    flex-direction: row;
+    gap: 20px;
     padding: 10px;
-    margin-bottom: 10px;
-    background-color: #f9f9f9;
-    border-radius: 5px;
+    margin-bottom: 15px;
+    background-color: #554848;
+    border-radius: 10px;
     border: 1px solid #ddd;
     transition: 0.3s;
 }
 
 .task-item:hover {
-    background-color: #f1f1f1;
+    background-color: #230505;
+    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
+}
+
+.task-item span {
+    word-wrap: break-word;
 }
 
 /* Buttons inside each task */
@@ -117,14 +143,20 @@ button {
 /* Priority styling */
 .low-priority {
     background-color: #5cb85c;
+    padding: 10px;
+    border-radius: 5px;
 }
 
 .medium-priority {
     background-color: #f0ad4e;
+    padding: 10px;
+    border-radius: 5px;
 }
 
 .high-priority {
     background-color: #d9534f;
+    padding: 10px;
+    border-radius: 5px;
 }
 
 /* Theme and Dark Mode */
@@ -140,12 +172,14 @@ button.dark-mode-btn {
 
 /* Styles for the Due Date Input */
 .due-date {
-    padding: 5px;
+    padding: 10px;
     font-size: 14px;
     border: 1px solid #ddd;
     border-radius: 5px;
     outline: none;
     transition: border-color 0.2s ease;
+    width: 100%;
+    box-sizing: border-box;
 }
 
 .due-date:hover,
@@ -155,13 +189,15 @@ button.dark-mode-btn {
 
 /* Styles for the Priority Selector */
 .priority-select {
-    padding: 5px;
+    padding: 10px;
     font-size: 14px;
     border: 1px solid #ddd;
     border-radius: 5px;
     background-color: #f9f9f9;
     outline: none;
     transition: border-color 0.2s ease, background-color 0.2s ease;
+    width: 100%;
+    box-sizing: border-box;
 }
 
 .priority-select:hover,
@@ -179,7 +215,7 @@ button.dark-mode-btn {
 /* Edit and Delete Buttons */
 .edit-btn,
 .delete-btn {
-    padding: 5px 10px;
+    padding: 10px 15px;
     margin-left: 10px;
     font-size: 14px;
     border: none;
@@ -204,4 +240,11 @@ button.dark-mode-btn {
 
 .delete-btn:hover {
     background-color: #c82333;
+}
+span.span-class {
+    display: -webkit-box;
+    -webkit-line-clamp: 1;
+    -webkit-box-orient: vertical;
+    overflow: hidden;
+    text-overflow: ellipsis;
 }

@@ -3,12 +3,38 @@ const textInput = document.getElementById("input-txt");
 const addButton = document.getElementById("add-btn");
 const displayContainer = document.getElementById("tododisplay");
 
+const prioritySelect = document.createElement("select");
+const taskContainer = document.createElement("div");
+const taskText = document.createElement("span");
+const dueDateInput = document.createElement("input");
+const completeCheckbox = document.createElement("input");
+const editButton = document.createElement("button");
+const deleteButton = document.createElement("button");
+
 // Priority List Array
 const priorityLevels = ["Low", "Medium", "High"];
 
+// All functions for different activities
+// Function to remove task
+function removeTask(taskContainer) {
+    taskContainer.remove();
+}
+
+// Function to edit task
+function editTask(taskText) {
+    const newValue = prompt("Edit your task:", taskText.textContent);
+    if (newValue !== null && newValue.trim() !== "") {
+        taskText.textContent = newValue.trim();
+    }
+}
+
+// Function to tick task completion
+function toggleTaskCompletion(taskText, completeCheckbox) {
+    taskText.classList.toggle("completed", completeCheckbox.checked);
+}
+
 // Function to display user input
 function userInputDisplay() {
-    const prioritySelect = document.createElement("select");
     priorityLevels.forEach(level => {
         const option = document.createElement("option");
         option.value = level;
@@ -17,7 +43,6 @@ function userInputDisplay() {
     });
 
     const userValue = textInput.value.trim();
-
     if (userValue !== "") {
         // Create task container
         const taskContainer = document.createElement("div");
@@ -25,6 +50,7 @@ function userInputDisplay() {
 
         // Create task text element
         const taskText = document.createElement("span");
+        taskText.className="span-class"
         taskText.textContent = userValue;
 
         // Create task due date input
@@ -37,27 +63,20 @@ function userInputDisplay() {
         completeCheckbox.type = "checkbox";
         completeCheckbox.className = "complete-checkbox";
         completeCheckbox.addEventListener("change", () => {
-            taskText.classList.toggle("completed", completeCheckbox.checked);
+            toggleTaskCompletion(taskText, completeCheckbox);
         });
 
         // Create Edit button
         const editButton = document.createElement("button");
         editButton.textContent = "Edit";
         editButton.className = "edit-btn";
-        editButton.addEventListener("click", () => {
-            const newValue = prompt("Edit your task:", taskText.textContent);
-            if (newValue !== null && newValue.trim() !== "") {
-                taskText.textContent = newValue.trim();
-            }
-        });
+        editButton.addEventListener("click", () => editTask(taskText));
 
         // Create Delete button
         const deleteButton = document.createElement("button");
         deleteButton.textContent = "Delete";
         deleteButton.className = "delete-btn";
-        deleteButton.addEventListener("click", () => {
-            taskContainer.remove();
-        });
+        deleteButton.addEventListener("click", () => removeTask(taskContainer));
 
         // Append all elements to the task container
         taskContainer.appendChild(taskText);
@@ -66,8 +85,6 @@ function userInputDisplay() {
         taskContainer.appendChild(completeCheckbox);
         taskContainer.appendChild(editButton);
         taskContainer.appendChild(deleteButton);
-
-        // Add task to the display container
         displayContainer.appendChild(taskContainer);
 
         // Clear input field
