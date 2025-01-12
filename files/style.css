@@ -1,0 +1,207 @@
+/* General body styling */
+body {
+    font-family: 'Arial', sans-serif;
+    background: linear-gradient(135deg, #fdfbfb, #ebedee);
+    margin: 0;
+    padding: 0;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    min-height: 100vh;
+}
+
+/* Input field and button */
+.todo-input-field {
+    display: flex;
+    gap: 20px;
+    align-items: center;
+    margin-bottom: 20px;
+}
+
+input[type="text"] {
+    width: 300px;
+    padding: 10px;
+    border: 2px solid #ccc;
+    border-radius: 5px;
+    font-size: 16px;
+    transition: 0.3s;
+}
+
+input[type="text"]:focus {
+    outline: none;
+    border-color: #888;
+}
+
+button {
+    padding: 10px 20px;
+    font-size: 16px;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    transition: 0.3s;
+}
+
+#add-btn {
+    background-color: #5cb85c;
+    color: white;
+}
+
+#add-btn:hover {
+    background-color: #4cae4c;
+}
+
+/* Display container for tasks */
+.display-container {
+    width: 80%;
+    max-width: 500px;
+    margin: 0 auto;
+    padding: 20px;
+    background-color: white;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    border-radius: 10px;
+}
+
+/* Task item styling */
+.task-item {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 10px;
+    margin-bottom: 10px;
+    background-color: #f9f9f9;
+    border-radius: 5px;
+    border: 1px solid #ddd;
+    transition: 0.3s;
+}
+
+.task-item:hover {
+    background-color: #f1f1f1;
+}
+
+/* Buttons inside each task */
+.task-item button {
+    margin-left: 10px;
+    padding: 5px 10px;
+    font-size: 14px;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+}
+
+.edit-btn {
+    background-color: #f0ad4e;
+    color: white;
+}
+
+.edit-btn:hover {
+    background-color: #ec971f;
+}
+
+.delete-btn {
+    background-color: #d9534f;
+    color: white;
+}
+
+.delete-btn:hover {
+    background-color: #c9302c;
+}
+
+/* Priority Features Classes */
+/* Completed task styling */
+.completed {
+    text-decoration: line-through;
+    color: grey;
+}
+
+/* Priority styling */
+.low-priority {
+    background-color: #5cb85c;
+}
+
+.medium-priority {
+    background-color: #f0ad4e;
+}
+
+.high-priority {
+    background-color: #d9534f;
+}
+
+/* Theme and Dark Mode */
+body.dark-mode {
+    background-color: #222;
+    color: #ddd;
+}
+
+button.dark-mode-btn {
+    background-color: #444;
+    color: white;
+}
+
+/* Styles for the Due Date Input */
+.due-date {
+    padding: 5px;
+    font-size: 14px;
+    border: 1px solid #ddd;
+    border-radius: 5px;
+    outline: none;
+    transition: border-color 0.2s ease;
+}
+
+.due-date:hover,
+.due-date:focus {
+    border-color: #007bff;
+}
+
+/* Styles for the Priority Selector */
+.priority-select {
+    padding: 5px;
+    font-size: 14px;
+    border: 1px solid #ddd;
+    border-radius: 5px;
+    background-color: #f9f9f9;
+    outline: none;
+    transition: border-color 0.2s ease, background-color 0.2s ease;
+}
+
+.priority-select:hover,
+.priority-select:focus {
+    border-color: #28a745;
+    background-color: #eef8ee;
+}
+
+/* Styles for Completed Task */
+.completed {
+    text-decoration: line-through;
+    color: #888;
+}
+
+/* Edit and Delete Buttons */
+.edit-btn,
+.delete-btn {
+    padding: 5px 10px;
+    margin-left: 10px;
+    font-size: 14px;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    transition: all 0.2s ease;
+}
+
+.edit-btn {
+    background-color: #ffc107;
+    color: #fff;
+}
+
+.edit-btn:hover {
+    background-color: #e0a800;
+}
+
+.delete-btn {
+    background-color: #dc3545;
+    color: #fff;
+}
+
+.delete-btn:hover {
+    background-color: #c82333;
+}
